@@ -4,9 +4,12 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-  # Runs automatically at 7:00 AM Taiwan time (UTC+8) every day
+  # Runs automatically at your specified times
   schedule:
-    - cron: "0 23 * * *"
+    # 6:45 AM CST (UTC+8) is 22:45 UTC on the previous day
+    - cron: "45 22 * * *"
+    # 23:00 PM CST (UTC+8) is 15:00 UTC on the same day
+    - cron: "0 15 * * *"
 
 jobs:
   build-release:
@@ -47,15 +50,21 @@ jobs:
             ./sing-box rule-set compile "$json_file" --output "$srs_file"
           done
 
-      - name: Update Latest Release
+      - name: Set Release Tag and Name as Unix Timestamp
+        id: set_vars
+        run: |
+          TIMESTAMP=$(date +%s)
+          echo "RELEASE_TAG_AND_NAME=$TIMESTAMP" >> $GITHUB_ENV
+
+      - name: Create New Release
         uses: softprops/action-gh-release@v2
         with:
-          # Use a static tag name. The action will update the release if it exists.
-          tag_name: "latest"
-          # Give the release a clear name.
-          name: "Latest Rule-Set Build"
-          # The action will update the release notes with the latest commit.
+          # Use the Unix timestamp for both the tag and the release name.
+          # This creates a new, unique release for each workflow run.
+          tag_name: ${{ env.RELEASE_TAG_AND_NAME }}
+          name: ${{ env.RELEASE_TAG_AND_NAME }}
+          # The action will generate release notes based on new commits.
           generate_release_notes: true
-          # The files to upload. This will overwrite any existing assets in the release.
+          # The files to upload to the new release.
           files: |
             dist/*.srs
