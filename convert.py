@@ -5,9 +5,7 @@ import ipaddress
 from pathlib import Path
 
 # --- Configuration ---
-# This configuration now creates a separate file for each of the original "DIRECT" sources.
 RULE_CONFIG = {
-    # Each of the following is now its own group, creating a separate file
     "PRIVATE": [
         "https://raw.githubusercontent.com/Loyalsoldier/surge-rules/release/ruleset/private.txt"
     ],
@@ -17,8 +15,6 @@ RULE_CONFIG = {
     "DIRECT": [
         "https://raw.githubusercontent.com/Loyalsoldier/surge-rules/release/ruleset/direct.txt"
     ],
-    
-    # The rest of the configuration remains the same
     "REJECT": [
         "https://raw.githubusercontent.com/Loyalsoldier/surge-rules/release/ruleset/reject.txt"
     ],
@@ -65,31 +61,32 @@ def parse_and_convert(group_name, urls):
         for line in lines:
             line = line.strip()
             
-            # Ignore comments and empty lines
             if not line or line.startswith('#'):
                 continue
             
-            # Heuristic to detect rule type
-            if ',' in line: # Likely Surge format (e.g., DOMAIN,google.com)
+            if ',' in line:
                 try:
                     rule_type, value = line.split(',', 1)
                     rule_type_upper = rule_type.strip().upper()
                     value_stripped = value.strip()
+                    
                     if rule_type_upper == 'DOMAIN-SUFFIX':
                         singbox_rules.append({"domain_suffix": value_stripped})
                     elif rule_type_upper == 'DOMAIN':
                         singbox_rules.append({"domain": value_stripped})
                     elif rule_type_upper == 'DOMAIN-KEYWORD':
                         singbox_rules.append({"domain_keyword": value_stripped})
-                    elif rule_type_upper == 'IP-CIDR':
+                    # --- THIS IS THE FIX ---
+                    # Now recognizes both IP-CIDR and IP-CIDR6
+                    elif rule_type_upper == 'IP-CIDR' or rule_type_upper == 'IP-CIDR6':
                         singbox_rules.append({"ip_cidr": value_stripped})
                     else:
                         print(f"  [!] Skipping unsupported Surge rule: {line}")
                 except ValueError:
                     print(f"  [!] Skipping malformed Surge rule: {line}")
-            elif is_ip_cidr(line): # Likely a plain IP/CIDR list
+            elif is_ip_cidr(line):
                 singbox_rules.append({"ip_cidr": line})
-            else: # Assume it's a domain/suffix rule if it's not a comment or IP
+            else:
                  singbox_rules.append({"domain_suffix": line})
 
     print(f"[+] Group '{group_name}' processed with {len(singbox_rules)} rules.")
