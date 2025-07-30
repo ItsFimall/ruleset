@@ -5,7 +5,6 @@ on:
   workflow_dispatch:
 
   # Runs automatically at 7:00 AM Taiwan time (UTC+8) every day
-  # 23:00 UTC is 7:00 AM in UTC+8
   schedule:
     - cron: "0 23 * * *"
 
@@ -41,29 +40,22 @@ jobs:
 
       - name: Compile JSON rules to SRS format
         run: |
-          # Create the output directory if it doesn't exist
           mkdir -p dist
-          # Find all JSON files in the dist directory and compile them
           for json_file in dist/*.json; do
             srs_file="${json_file%.json}.srs"
             echo "Compiling $json_file to $srs_file..."
-            # CORRECTED COMMAND: The input file is a direct argument, not behind an --input flag.
             ./sing-box rule-set compile "$json_file" --output "$srs_file"
           done
 
-      - name: Get current date
-        id: date
-        run: echo "TODAY=$(date +'%Y-%m-%d')" >> $GITHUB_ENV
-
-      - name: Create Release and Upload Assets
+      - name: Update Latest Release
         uses: softprops/action-gh-release@v2
         with:
-          # Use the environment variable set in the previous step
-          tag_name: rules-${{ env.TODAY }}
-          # The name of the release in the GitHub UI
-          name: Rule-Set Release ${{ env.TODAY }}
-          # Let GitHub Actions generate the release notes automatically
+          # Use a static tag name. The action will update the release if it exists.
+          tag_name: "latest"
+          # Give the release a clear name.
+          name: "Latest Rule-Set Build"
+          # The action will update the release notes with the latest commit.
           generate_release_notes: true
-          # The files to upload as assets to the release
+          # The files to upload. This will overwrite any existing assets in the release.
           files: |
             dist/*.srs
