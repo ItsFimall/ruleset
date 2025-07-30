@@ -1,0 +1,67 @@
+name: Build and Release Rule-Sets
+
+on:
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+  # Runs automatically at 7:00 AM Taiwan time (UTC+8) every day
+  # 23:00 UTC is 7:00 AM in UTC+8
+  schedule:
+    - cron: "0 23 * * *"
+
+jobs:
+  build-release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # Needed to create the release and upload assets
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Install Python dependencies
+        run: pip install requests
+
+      - name: Run converter script to generate JSON files
+        run: python convert.py
+
+      - name: Download sing-box binary
+        run: |
+          LATEST_URL=$(curl -sL "https://api.github.com/repos/SagerNet/sing-box/releases/latest" | grep "browser_download_url" | grep "linux-amd64" | cut -d '"' -f 4)
+          wget -q "$LATEST_URL" -O sing-box.tar.gz
+          tar -xzf sing-box.tar.gz
+          mv sing-box-*-linux-amd64/sing-box .
+          chmod +x ./sing-box
+          ./sing-box version
+
+      - name: Compile JSON rules to SRS format
+        run: |
+          # Create the output directory if it doesn't exist
+          mkdir -p dist
+          # Find all JSON files in the dist directory and compile them
+          for json_file in dist/*.json; do
+            srs_file="${json_file%.json}.srs"
+            echo "Compiling $json_file to $srs_file..."
+            ./sing-box rule-set compile --input "$json_file" --output "$srs_file"
+          done
+
+      - name: Create Release and Upload Assets
+        uses: softprops/action-gh-release@v2
+        with:
+          # Create a unique tag name based on the date, e.g., rules-2025-07-30
+          tag_name: rules-${{ env.TODAY }}
+          # The name of the release in the GitHub UI
+          name: Rule-Set Release ${{ env.TODAY }}
+          # Let GitHub Actions generate the release notes automatically
+          generate_release_notes: true
+          # The files to upload as assets to the release
+          files: |
+            dist/*.srs
+        env:
+          # Set an environment variable for today's date in YYYY-MM-DD format
+          TODAY: ${{ new Date().toISOString().split('T')[0] }}
