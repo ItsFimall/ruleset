@@ -15,7 +15,7 @@ jobs:
   build-release:
     runs-on: ubuntu-latest
     permissions:
-      contents: write # Needed to create the release and upload assets
+      contents: write # Needed to create releases and push to a branch
 
     steps:
       - name: Checkout repository
@@ -50,21 +50,26 @@ jobs:
             ./sing-box rule-set compile "$json_file" --output "$srs_file"
           done
 
+      - name: 🚀 Deploy SRS files to release branch
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+          publish_branch: release
+          force_orphan: true # Creates a clean branch history with only the latest files
+          commit_message: "Update rule-sets (${{ github.sha }}) [ci skip]"
+
       - name: Set Release Tag and Name as Unix Timestamp
         id: set_vars
         run: |
           TIMESTAMP=$(date +%s)
           echo "RELEASE_TAG_AND_NAME=$TIMESTAMP" >> $GITHUB_ENV
 
-      - name: Create New Release
+      - name: 📦 Create New GitHub Release
         uses: softprops/action-gh-release@v2
         with:
-          # Use the Unix timestamp for both the tag and the release name.
-          # This creates a new, unique release for each workflow run.
           tag_name: ${{ env.RELEASE_TAG_AND_NAME }}
           name: ${{ env.RELEASE_TAG_AND_NAME }}
-          # The action will generate release notes based on new commits.
           generate_release_notes: true
-          # The files to upload to the new release.
           files: |
             dist/*.srs
