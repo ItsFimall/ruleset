@@ -47,7 +47,8 @@ jobs:
           for json_file in dist/*.json; do
             srs_file="${json_file%.json}.srs"
             echo "Compiling $json_file to $srs_file..."
-            ./sing-box rule-set compile --input "$json_file" --output "$srs_file"
+            # CORRECTED COMMAND: The input file is a direct argument, not behind an --input flag.
+            ./sing-box rule-set compile "$json_file" --output "$srs_file"
           done
 
       - name: Get current date
