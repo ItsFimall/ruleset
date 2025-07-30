@@ -50,10 +50,14 @@ jobs:
             ./sing-box rule-set compile --input "$json_file" --output "$srs_file"
           done
 
+      - name: Get current date
+        id: date
+        run: echo "TODAY=$(date +'%Y-%m-%d')" >> $GITHUB_ENV
+
       - name: Create Release and Upload Assets
         uses: softprops/action-gh-release@v2
         with:
-          # Create a unique tag name based on the date, e.g., rules-2025-07-30
+          # Use the environment variable set in the previous step
           tag_name: rules-${{ env.TODAY }}
           # The name of the release in the GitHub UI
           name: Rule-Set Release ${{ env.TODAY }}
@@ -62,6 +66,3 @@ jobs:
           # The files to upload as assets to the release
           files: |
             dist/*.srs
-        env:
-          # Set an environment variable for today's date in YYYY-MM-DD format
-          TODAY: ${{ new Date().toISOString().split('T')[0] }}
