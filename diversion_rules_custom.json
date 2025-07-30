@@ -1,0 +1,51 @@
+{
+  "rules": [
+    {
+      "outbound": "direct",
+      "name": "Private",
+      "switch": true,
+      "or": true,
+      "rule_set": [
+        "https://cdn.jsdelivr.net/gh/ItsFimall/ruleset@release/PRIVATE.srs"
+      ]
+    },
+    {
+      "outbound": "direct",
+      "name": "CNCidr",
+      "switch": true,
+      "or": true,
+      "rule_set": [
+        "https://cdn.jsdelivr.net/gh/ItsFimall/ruleset@release/CNCIDR.srs"
+      ]
+    },
+    {
+      "outbound": "block",
+      "name": "Reject",
+      "switch": true,
+      "or": true,
+      "rule_set": [
+        "https://cdn.jsdelivr.net/gh/ItsFimall/ruleset@release/REJECT.srs"
+      ]
+    },
+    {
+      "outbound": "currentSelected",
+      "name": "Relay",
+      "switch": true,
+      "or": true,
+      "rule_set": [
+        "https://cdn.jsdelivr.net/gh/ItsFimall/ruleset@release/GOOGLE.srs",
+        "https://cdn.jsdelivr.net/gh/ItsFimall/ruleset@release/APPLE.srs",
+        "https://cdn.jsdelivr.net/gh/ItsFimall/ruleset@release/PROXY.srs"
+      ]
+    },
+    {
+      "outbound": "direct",
+      "name": "Direct",
+      "switch": true,
+      "or": true,
+      "rule_set": [
+        "https://cdn.jsdelivr.net/gh/ItsFimall/ruleset@release/DIRECT.srs"
+      ]
+    }
+  ]
+}
