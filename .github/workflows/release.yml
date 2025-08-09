@@ -9,7 +9,7 @@ on:
     # 6:45 AM CST (UTC+8) is 22:45 UTC on the previous day
     - cron: "45 22 * * *"
     # 23:00 PM CST (UTC+8) is 15:00 UTC on the same day
-    - cron: "0 15 * * *"
+    - cron: "0 16 * * *"
 
 jobs:
   build-release:
