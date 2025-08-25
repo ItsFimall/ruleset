@@ -1,0 +1,431 @@
+{
+  "version": 1,
+  "rules": [
+    {
+      "domain_suffix": "265.com"
+    },
+    {
+      "domain_suffix": "2mdn-cn.net"
+    },
+    {
+      "domain_suffix": "2mdn.net"
+    },
+    {
+      "domain_suffix": "admob-cn.com"
+    },
+    {
+      "domain_suffix": "adservice.google.com"
+    },
+    {
+      "domain_suffix": "app-analytics-services.com"
+    },
+    {
+      "domain_suffix": "app-measurement-cn.com"
+    },
+    {
+      "domain_suffix": "app-measurement.com"
+    },
+    {
+      "domain_suffix": "apps5.oingo.com"
+    },
+    {
+      "domain_suffix": "avail.googleflights.net"
+    },
+    {
+      "domain_suffix": "beacons.gcp.gvt2.com"
+    },
+    {
+      "domain_suffix": "beacons.gvt2.com"
+    },
+    {
+      "domain_suffix": "beacons2.gvt2.com"
+    },
+    {
+      "domain_suffix": "beacons3.gvt2.com"
+    },
+    {
+      "domain_suffix": "c.admob.com"
+    },
+    {
+      "domain_suffix": "c.android.clients.google.com"
+    },
+    {
+      "domain_suffix": "cache-management-prod.google.com"
+    },
+    {
+      "domain_suffix": "cache.pack.google.com"
+    },
+    {
+      "domain_suffix": "checkin.gstatic.com"
+    },
+    {
+      "domain_suffix": "clickserve.cc-dt.com"
+    },
+    {
+      "domain_suffix": "clickserve.dartsearch.net"
+    },
+    {
+      "domain_suffix": "clickserver.googleads.com"
+    },
+    {
+      "domain_suffix": "clientservices.googleapis.com"
+    },
+    {
+      "domain_suffix": "cn.widevine.com"
+    },
+    {
+      "domain_suffix": "cnappinstall.googleadapis.com"
+    },
+    {
+      "domain_suffix": "connectivitycheck.gstatic.com"
+    },
+    {
+      "domain_suffix": "content.googleadapis.com"
+    },
+    {
+      "domain_suffix": "crashlyticsreports-pa.googleapis.com"
+    },
+    {
+      "domain_suffix": "crl.pki.goog"
+    },
+    {
+      "domain_suffix": "csi.gstatic.com"
+    },
+    {
+      "domain_suffix": "dartsearch-cn.net"
+    },
+    {
+      "domain_suffix": "dg-meta.video.google.com"
+    },
+    {
+      "domain_suffix": "dl.google.com"
+    },
+    {
+      "domain_suffix": "dl.l.google.com"
+    },
+    {
+      "domain_suffix": "doubleclick-cn.net"
+    },
+    {
+      "domain_suffix": "doubleclick.net"
+    },
+    {
+      "domain_suffix": "download.mlcc.google.com"
+    },
+    {
+      "domain_suffix": "download.qatp1.net"
+    },
+    {
+      "domain_suffix": "download.tensorflow.google.com"
+    },
+    {
+      "domain_suffix": "emmapplecodevice.googleapis.com"
+    },
+    {
+      "domain_suffix": "firebase-settings.crashlytics.com"
+    },
+    {
+      "domain_suffix": "fontfiles.googleapis.com"
+    },
+    {
+      "domain_suffix": "fonts.googleapis.com"
+    },
+    {
+      "domain_suffix": "fonts.gstatic.com"
+    },
+    {
+      "domain_suffix": "g0.gstatic.com"
+    },
+    {
+      "domain_suffix": "g1.gstatic.com"
+    },
+    {
+      "domain_suffix": "g2.gstatic.com"
+    },
+    {
+      "domain_suffix": "g3.gstatic.com"
+    },
+    {
+      "domain_suffix": "go.corp.google.com"
+    },
+    {
+      "domain_suffix": "gonglchuangl.net"
+    },
+    {
+      "domain_suffix": "gongyichuangyi.net"
+    },
+    {
+      "domain_suffix": "google-analytics-cn.com"
+    },
+    {
+      "domain_suffix": "google-analytics.com"
+    },
+    {
+      "domain_suffix": "googleadservices-cn.com"
+    },
+    {
+      "domain_suffix": "googleadservices.com"
+    },
+    {
+      "domain_suffix": "googleanalytics.com"
+    },
+    {
+      "domain_suffix": "googleapis-cn.com"
+    },
+    {
+      "domain_suffix": "googleapps-cn.com"
+    },
+    {
+      "domain_suffix": "googleflights-cn.net"
+    },
+    {
+      "domain_suffix": "googleoptimize-cn.com"
+    },
+    {
+      "domain_suffix": "googleoptimize.com"
+    },
+    {
+      "domain_suffix": "googlesyndication-cn.com"
+    },
+    {
+      "domain_suffix": "googlesyndication.com"
+    },
+    {
+      "domain_suffix": "googletagmanager-cn.com"
+    },
+    {
+      "domain_suffix": "googletagmanager.com"
+    },
+    {
+      "domain_suffix": "googletagservices-cn.com"
+    },
+    {
+      "domain_suffix": "googletagservices.com"
+    },
+    {
+      "domain_suffix": "googletraveladservices-cn.com"
+    },
+    {
+      "domain_suffix": "googletraveladservices.com"
+    },
+    {
+      "domain_suffix": "googlevads-cn.com"
+    },
+    {
+      "domain_suffix": "gstatic-cn.com"
+    },
+    {
+      "domain_suffix": "gstaticadssl.l.google.com"
+    },
+    {
+      "domain_suffix": "gtm.oasisfeng.com"
+    },
+    {
+      "domain_suffix": "gvt1-cn.com"
+    },
+    {
+      "domain_suffix": "gvt2-cn.com"
+    },
+    {
+      "domain_suffix": "imasdk.googleapis.com"
+    },
+    {
+      "domain_suffix": "l2-uberproxy.corp.google.com"
+    },
+    {
+      "domain_suffix": "logger-dev.corp.google.com"
+    },
+    {
+      "domain_suffix": "logger.corp.google.com"
+    },
+    {
+      "domain_suffix": "login.corp.google.com"
+    },
+    {
+      "domain_suffix": "monitoring.qpdp1.net"
+    },
+    {
+      "domain_suffix": "ocsp.pki.goog"
+    },
+    {
+      "domain_suffix": "pagead-googlehosted.l.google.com"
+    },
+    {
+      "domain_suffix": "performanceparameters.googleapis.com"
+    },
+    {
+      "domain_suffix": "pki-goog.l.google.com"
+    },
+    {
+      "domain_suffix": "prod-controlbe.floonet.goog"
+    },
+    {
+      "domain_suffix": "prod-databe.floonet.goog"
+    },
+    {
+      "domain_suffix": "prod.databe.floonet.goog"
+    },
+    {
+      "domain_suffix": "proxyconfig.corp.google.com"
+    },
+    {
+      "domain_suffix": "qagpublic.qatp1.net"
+    },
+    {
+      "domain_suffix": "qgadmin.qcpp1.net"
+    },
+    {
+      "domain_suffix": "qiao-cn.com"
+    },
+    {
+      "domain_suffix": "qpx.googleflights.net"
+    },
+    {
+      "domain_suffix": "qualysapi.qatp1.net"
+    },
+    {
+      "domain_suffix": "qualysguard.qpdp1.net"
+    },
+    {
+      "domain_suffix": "r.cert.corp.google.com"
+    },
+    {
+      "domain_suffix": "rapture-prod.corp.google.com"
+    },
+    {
+      "domain_suffix": "recaptcha-cn.net"
+    },
+    {
+      "domain_suffix": "recaptcha.net"
+    },
+    {
+      "domain_suffix": "redirector.bdn.dev"
+    },
+    {
+      "domain_suffix": "redirector.c.chat.google.com"
+    },
+    {
+      "domain_suffix": "redirector.c.mail.google.com"
+    },
+    {
+      "domain_suffix": "redirector.c.pack.google.com"
+    },
+    {
+      "domain_suffix": "redirector.c.play.google.com"
+    },
+    {
+      "domain_suffix": "redirector.c.youtubeeducation.com"
+    },
+    {
+      "domain_suffix": "redirector.gcpcdn.gvt1.com"
+    },
+    {
+      "domain_suffix": "redirector.gvt1.com"
+    },
+    {
+      "domain_suffix": "redirector.offline-maps.gvt1.com"
+    },
+    {
+      "domain_suffix": "redirector.snap.gvt1.com"
+    },
+    {
+      "domain_suffix": "redirector.xn--ngstr-lra8j.com"
+    },
+    {
+      "domain_suffix": "safebrowsing-cache.google.com"
+    },
+    {
+      "domain_suffix": "safebrowsing.googleapis.com"
+    },
+    {
+      "domain_suffix": "scanservice1.qcpp1.net"
+    },
+    {
+      "domain_suffix": "service.urchin.com"
+    },
+    {
+      "domain_suffix": "ssl-google-analytics.l.google.com"
+    },
+    {
+      "domain_suffix": "ssl.gstatic.com"
+    },
+    {
+      "domain_suffix": "sslredirect.corp.google.com"
+    },
+    {
+      "domain_suffix": "staging-controlbe.floonet.goog"
+    },
+    {
+      "domain_suffix": "staging-databe.floonet.goog"
+    },
+    {
+      "domain_suffix": "staging.databe.floonet.goog"
+    },
+    {
+      "domain_suffix": "streaming-uberproxy-rotation.corp.google.com"
+    },
+    {
+      "domain_suffix": "streaming-uberproxy.corp.google.com"
+    },
+    {
+      "domain_suffix": "sup-ssh-relay.corp.google.com"
+    },
+    {
+      "domain_suffix": "sup-ssh-relay2.corp.google.com"
+    },
+    {
+      "domain_suffix": "sup.corp.google.com"
+    },
+    {
+      "domain_suffix": "sup.l.google.com"
+    },
+    {
+      "domain_suffix": "tac.googleapis.com"
+    },
+    {
+      "domain_suffix": "test.gbugs-qa.chromium.org"
+    },
+    {
+      "domain_suffix": "tools.google.com"
+    },
+    {
+      "domain_suffix": "tools.l.google.com"
+    },
+    {
+      "domain_suffix": "uberproxy-debug4.corp.google.com"
+    },
+    {
+      "domain_suffix": "uberproxy.corp.google.com"
+    },
+    {
+      "domain_suffix": "uberproxy6.corp.google.com"
+    },
+    {
+      "domain_suffix": "update.crashlytics.com"
+    },
+    {
+      "domain_suffix": "update.googleapis.com"
+    },
+    {
+      "domain_suffix": "wear.googleapis.com"
+    },
+    {
+      "domain_suffix": "www-google-analytics.l.google.com"
+    },
+    {
+      "domain_suffix": "www-googletagmanager.l.google.com"
+    },
+    {
+      "domain_suffix": "www.destinationurl.com"
+    },
+    {
+      "domain_suffix": "www.gstatic.com"
+    },
+    {
+      "domain_suffix": "www.pxcc.com"
+    },
+    {
+      "domain_suffix": "xn--flw351e.com"
+    }
+  ]
+}
